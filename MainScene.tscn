@@ -1,0 +1,282 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Ground.png" type="Texture" id=1]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=3]
+[ext_resource path="res://progress.png" type="Texture" id=4]
+[ext_resource path="res://Icons/house.png" type="Texture" id=5]
+[ext_resource path="res://Icons/shop.png" type="Texture" id=6]
+[ext_resource path="res://Icons/work.png" type="Texture" id=7]
+[ext_resource path="res://TimeButtons/time.png" type="Texture" id=8]
+[ext_resource path="res://TimeButtons/pop.png" type="Texture" id=9]
+[ext_resource path="res://TimeButtons/pause.png" type="Texture" id=10]
+[ext_resource path="res://TimeButtons/normal.png" type="Texture" id=11]
+[ext_resource path="res://TimeButtons/fast.png" type="Texture" id=12]
+[ext_resource path="res://TimeButtons/doublefast.png" type="Texture" id=13]
+[ext_resource path="res://GameMaster.cs" type="Script" id=14]
+[ext_resource path="res://DemandManager.cs" type="Script" id=15]
+[ext_resource path="res://TimeManager.cs" type="Script" id=16]
+[ext_resource path="res://DeathMessageManager.cs" type="Script" id=17]
+[ext_resource path="res://MainCamera.cs" type="Script" id=18]
+[ext_resource path="res://Camera.cs" type="Script" id=19]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Ground" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 384, 384 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Buttons" type="CenterContainer" parent="CanvasLayer"]
+margin_top = 160.14
+margin_right = 427.0
+margin_bottom = 184.14
+rect_scale = Vector2( 0.75, 0.75 )
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Buttons"]
+margin_left = 207.0
+margin_top = 6.0
+margin_right = 219.0
+margin_bottom = 18.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Buttons/Panel"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 6.0
+margin_bottom = 6.0
+
+[node name="Demand" type="PanelContainer" parent="CanvasLayer"]
+margin_left = 284.51
+margin_top = 146.964
+margin_right = 329.51
+margin_bottom = 192.964
+rect_scale = Vector2( 0.75, 0.75 )
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DemandContainer" type="HBoxContainer" parent="CanvasLayer/Demand"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 39.0
+margin_bottom = 40.0
+theme = ExtResource( 3 )
+
+[node name="HouseContainer" type="VBoxContainer" parent="CanvasLayer/Demand/DemandContainer"]
+margin_right = 8.0
+margin_bottom = 34.0
+hint_tooltip = "Residential"
+theme = ExtResource( 3 )
+custom_constants/separation = 1
+
+[node name="House" type="TextureProgress" parent="CanvasLayer/Demand/DemandContainer/HouseContainer"]
+margin_right = 8.0
+margin_bottom = 25.0
+value = 100.0
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+tint_progress = Color( 0.141176, 0.941176, 0.266667, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Demand/DemandContainer/HouseContainer"]
+margin_top = 26.0
+margin_right = 8.0
+margin_bottom = 34.0
+texture = ExtResource( 5 )
+
+[node name="ShopContainer" type="VBoxContainer" parent="CanvasLayer/Demand/DemandContainer"]
+margin_left = 12.0
+margin_right = 20.0
+margin_bottom = 34.0
+hint_tooltip = "Commercial"
+theme = ExtResource( 3 )
+custom_constants/separation = 1
+
+[node name="Shop" type="TextureProgress" parent="CanvasLayer/Demand/DemandContainer/ShopContainer"]
+margin_right = 8.0
+margin_bottom = 25.0
+value = 16.0
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+tint_progress = Color( 0.188235, 0.756863, 0.929412, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Demand/DemandContainer/ShopContainer"]
+margin_top = 26.0
+margin_right = 8.0
+margin_bottom = 34.0
+texture = ExtResource( 6 )
+
+[node name="WorkContainer" type="VBoxContainer" parent="CanvasLayer/Demand/DemandContainer"]
+margin_left = 24.0
+margin_right = 32.0
+margin_bottom = 34.0
+hint_tooltip = "Industrial"
+theme = ExtResource( 3 )
+custom_constants/separation = 1
+
+[node name="Work" type="TextureProgress" parent="CanvasLayer/Demand/DemandContainer/WorkContainer"]
+margin_right = 8.0
+margin_bottom = 25.0
+value = 24.0
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+tint_progress = Color( 0.980392, 0.184314, 0.219608, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Demand/DemandContainer/WorkContainer"]
+margin_top = 26.0
+margin_right = 8.0
+margin_bottom = 34.0
+texture = ExtResource( 7 )
+
+[node name="Info" type="PanelContainer" parent="CanvasLayer"]
+editor/display_folded = true
+margin_left = 1.0
+margin_top = 154.0
+margin_right = 38.0
+margin_bottom = 183.0
+theme = ExtResource( 3 )
+
+[node name="InfoBox" type="VBoxContainer" parent="CanvasLayer/Info"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 31.0
+margin_bottom = 23.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_constants/separation = 0
+
+[node name="TimeContainer" type="HBoxContainer" parent="CanvasLayer/Info/InfoBox"]
+margin_right = 25.0
+margin_bottom = 7.0
+custom_constants/separation = 5
+
+[node name="Control" type="Control" parent="CanvasLayer/Info/InfoBox/TimeContainer"]
+margin_bottom = 7.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Info/InfoBox/TimeContainer/Control"]
+margin_right = 7.0
+margin_bottom = 7.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Time" type="Label" parent="CanvasLayer/Info/InfoBox/TimeContainer"]
+margin_left = 5.0
+margin_right = 14.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "00:00"
+valign = 1
+
+[node name="PopContainer" type="HBoxContainer" parent="CanvasLayer/Info/InfoBox"]
+margin_top = 7.0
+margin_right = 25.0
+margin_bottom = 14.0
+custom_constants/separation = 5
+
+[node name="Control" type="Control" parent="CanvasLayer/Info/InfoBox/PopContainer"]
+margin_bottom = 7.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Info/InfoBox/PopContainer/Control"]
+margin_right = 8.0
+margin_bottom = 8.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Population" type="Label" parent="CanvasLayer/Info/InfoBox/PopContainer"]
+margin_left = 5.0
+margin_right = 11.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "999"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+editor/display_folded = true
+margin_left = 6.7445
+margin_top = 173.102
+margin_right = 56.7445
+margin_bottom = 181.102
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Pause" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 8.0
+texture_normal = ExtResource( 10 )
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 20.0
+margin_bottom = 8.0
+texture_normal = ExtResource( 11 )
+
+[node name="Fast" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 32.0
+margin_bottom = 8.0
+texture_normal = ExtResource( 12 )
+
+[node name="Double" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+margin_left = 36.0
+margin_right = 50.0
+margin_bottom = 8.0
+texture_normal = ExtResource( 13 )
+
+[node name="MessageContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -319.0
+margin_top = 3.0
+margin_right = -62.0
+margin_bottom = 60.0
+mouse_filter = 2
+custom_constants/separation = 0
+
+[node name="GameMaster" type="Node2D" parent="."]
+script = ExtResource( 14 )
+
+[node name="DemandManager" type="Node2D" parent="GameMaster"]
+script = ExtResource( 15 )
+
+[node name="TimeManager" type="Node2D" parent="GameMaster"]
+script = ExtResource( 16 )
+
+[node name="DeathMessageManager" type="Node2D" parent="GameMaster"]
+script = ExtResource( 17 )
+
+[node name="MainCamera" type="Node2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+SPEED = 200.0
+
+[node name="Camera" type="Camera2D" parent="MainCamera"]
+visible = false
+anchor_mode = 0
+current = true
+script = ExtResource( 19 )
+
+[node name="FxContainer" type="Node2D" parent="."]
+
+[node name="SoundEffects" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Pause" to="GameMaster/TimeManager" method="OnPausePressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Play" to="GameMaster/TimeManager" method="OnPlayPressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Fast" to="GameMaster/TimeManager" method="OnFastPressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Double" to="GameMaster/TimeManager" method="OnDoublePressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=1]
+
+[node name="DeathMessage" type="Label"]
+margin_right = 40.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "#1 has died"
+

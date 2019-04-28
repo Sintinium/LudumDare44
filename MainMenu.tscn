@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MainMenu.cs" type="Script" id=1]
+[ext_resource path="res://Ground.png" type="Texture" id=2]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=4]
+[ext_resource path="res://Themes/HelpTheme.tres" type="Theme" id=5]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Ground" type="Sprite" parent="."]
+position = Vector2( 384.271, 384.05 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 65534, 14, 262148, 65535, 14, 262149, 0, 14, 262149, 1, 14, 262149, 2, 14, 262149, 3, 14, 262149, 4, 14, 262149, 5, 14, 262149, 6, 14, 262149, 7, 14, 262149, 8, 14, 262149, 9, 14, 1, 10, 13, 0, 11, 13, 0, 12, 13, 0, 13, 13, 0, 14, 13, 0, 15, 13, 0, 16, 13, 0, 17, 13, 0, 18, 13, 0, 19, 13, 0, 20, 13, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65545, 14, 65536, 65546, 14, 131073, 65547, 14, 262149, 65548, 14, 262149, 65549, 14, 131073, 65550, 14, 262149, 65551, 14, 262149, 65552, 14, 131073, 65553, 14, 262149, 65554, 14, 262149, 65555, 14, 131073, 65556, 14, 262150, 131075, 0, 0, 131076, 14, 0, 131077, 14, 262149, 131078, 14, 1, 131079, 0, 0, 131082, 14, 65540, 131083, 8, 0, 131085, 14, 65540, 131088, 14, 65540, 131090, 4, 0, 131091, 14, 65540, 196610, 0, 0, 196611, 14, 0, 196612, 14, 65537, 196613, 12, 0, 196614, 14, 65536, 196615, 14, 1, 196616, 0, 0, 196618, 14, 65540, 196621, 14, 65540, 196624, 14, 65540, 196627, 14, 65540, 262145, 0, 0, 262146, 14, 0, 262147, 14, 65537, 262148, 12, 0, 262150, 12, 0, 262151, 14, 65536, 262152, 14, 1, 262153, 0, 0, 262154, 14, 65540, 262156, 9, 0, 262157, 14, 65540, 262160, 14, 65540, 262161, 7, 0, 262163, 14, 65540, 327681, 0, 0, 327682, 14, 65540, 327683, 12, 0, 327687, 12, 0, 327688, 14, 196608, 327689, 14, 262149, 327690, 14, 196610, 327693, 14, 65540, 327696, 14, 65540, 327699, 14, 65540, 393217, 0, 0, 393218, 14, 65536, 393219, 14, 1, 393220, 12, 0, 393222, 12, 0, 393223, 14, 0, 393224, 14, 65537, 393225, 0, 0, 393226, 14, 65540, 393228, 3, 0, 393229, 14, 65540, 393232, 14, 65540, 393234, 6, 0, 393235, 14, 65540, 458754, 0, 0, 458755, 14, 65536, 458756, 14, 1, 458757, 12, 0, 458758, 14, 0, 458759, 14, 65537, 458760, 0, 0, 458762, 14, 65540, 458765, 14, 65540, 458768, 14, 65540, 458771, 14, 65540, 524291, 0, 0, 524292, 14, 65536, 524293, 14, 262149, 524294, 14, 65537, 524295, 0, 0, 524298, 14, 65540, 524299, 3, 0, 524301, 14, 65540, 524304, 14, 65540, 524305, 5, 0, 524307, 14, 65540, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589833, 14, 0, 589834, 14, 262145, 589835, 14, 262149, 589836, 14, 262149, 589837, 14, 262145, 589838, 14, 262149, 589839, 14, 262149, 589840, 14, 262145, 589841, 14, 262149, 589842, 14, 262149, 589843, 14, 262145, 589844, 14, 262149, 589845, 14, 262150, 655363, 14, 262148, 655364, 14, 262149, 655365, 14, 262149, 655366, 14, 262149, 655367, 14, 262149, 655368, 14, 262149, 655369, 14, 65537, 655370, 11, 0, 655371, 11, 0, 655372, 11, 0, 655373, 11, 0, 655374, 11, 0, 655375, 11, 0, 655376, 11, 0, 655377, 11, 0, 655378, 11, 0, 655379, 11, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 330.0
+margin_bottom = 190.0
+color = Color( 0, 0, 0, 0.364706 )
+
+[node name="Buttons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+editor/display_folded = true
+margin_left = 140.0
+margin_top = 67.0
+margin_right = 180.0
+margin_bottom = 112.0
+theme = ExtResource( 5 )
+custom_constants/separation = 9
+
+[node name="Button" type="Button" parent="Buttons/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 9.0
+text = "Play"
+
+[node name="Button3" type="Button" parent="Buttons/VBoxContainer"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 27.0
+text = "Help"
+
+[node name="Button2" type="Button" parent="Buttons/VBoxContainer"]
+margin_top = 36.0
+margin_right = 40.0
+margin_bottom = 45.0
+text = "Quit"
+
+[node name="Help" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Help"]
+margin_right = 330.0
+margin_bottom = 190.0
+color = Color( 0, 0, 0, 0.827451 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Help"]
+margin_right = 320.0
+margin_bottom = 180.0
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Help/MarginContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 314.0
+margin_bottom = 174.0
+theme = ExtResource( 5 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "Death City is a game about managing a city made for Ludum Dare 44 \"Your life is currency\".
+
+\"My life isn't currency, YOURS IS!\" - Mayor of Death City
+
+Try to keep the people of your city happy or else they'll leave (they die).
+
+The bars  on the right side of the screen tell you what the people demand. Housing is most important and after that is jobs.
+
+Each upgrade has a fixed size. More expensive buildings are better.
+
+To gain population buildings are \"taxed\" but only if there's enough population to operate them!"
+
+[node name="Button" type="Button" parent="Help"]
+margin_top = 170.0
+margin_right = 40.0
+margin_bottom = 180.0
+theme = ExtResource( 5 )
+text = "< Back"
+
+[connection signal="pressed" from="Buttons/VBoxContainer/Button" to="." method="OnPlay"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Button3" to="." method="OnHelp"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Button2" to="." method="OnExit"]
+[connection signal="pressed" from="Help/Button" to="." method="ExitHelp"]

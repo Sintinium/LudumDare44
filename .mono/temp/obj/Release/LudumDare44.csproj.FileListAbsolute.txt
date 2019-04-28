@@ -1,0 +1,6 @@
+E:\Users\sinti\Documents\Projects\Godot\LudumDare44\.mono\temp\bin\Release\LudumDare44.dll
+E:\Users\sinti\Documents\Projects\Godot\LudumDare44\.mono\temp\bin\Release\LudumDare44.pdb
+E:\Users\sinti\Documents\Projects\Godot\LudumDare44\.mono\temp\obj\Release\LudumDare44.csprojAssemblyReference.cache
+E:\Users\sinti\Documents\Projects\Godot\LudumDare44\.mono\temp\obj\Release\LudumDare44.csproj.CoreCompileInputs.cache
+E:\Users\sinti\Documents\Projects\Godot\LudumDare44\.mono\temp\obj\Release\LudumDare44.dll
+E:\Users\sinti\Documents\Projects\Godot\LudumDare44\.mono\temp\obj\Release\LudumDare44.pdb

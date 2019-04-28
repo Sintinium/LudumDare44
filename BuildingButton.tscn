@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Buildings/house_1.png" type="Texture" id=1]
+[ext_resource path="res://BuildingButton.cs" type="Script" id=2]
+[ext_resource path="res://Themes/PriceTheme.tres" type="Theme" id=3]
+
+[node name="BuildingButton" type="TextureButton"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Underline" type="ColorRect" parent="."]
+visible = false
+margin_top = 17.0
+margin_right = 16.0
+margin_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color( 1, 1, 0, 1 )
+
+[node name="LabelContainer" type="CenterContainer" parent="."]
+margin_left = 0.322401
+margin_top = 11.1075
+margin_right = 16.3224
+margin_bottom = 22.1075
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="LabelContainer"]
+margin_left = 5.0
+margin_right = 9.0
+margin_bottom = 11.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.784314, 0.960784, 0.290196, 1 )
+text = "1"
+align = 1
+
+[connection signal="pressed" from="." to="." method="OnPressed"]
